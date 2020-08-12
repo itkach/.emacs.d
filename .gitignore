@@ -16,3 +16,7 @@ recentf
 url/cookies
 var/pcache
 *.orig
+.cache
+.lsp-session-v1
+*~
+custom-file.el
