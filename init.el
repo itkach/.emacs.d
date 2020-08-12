@@ -161,3 +161,30 @@
 (use-package rainbow-mode
   :delight
   :hook prog-mode)
+
+(use-package flycheck
+  :init (global-flycheck-mode))
+
+
+(setq lsp-keymap-prefix "s-l")
+
+(use-package lsp-mode
+    :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+           (sh-mode . lsp)
+           (yaml-mode . lsp)
+            ;; if you want which-key integration
+           (lsp-mode . lsp-enable-which-key-integration))
+    :commands lsp)
+
+(use-package lsp-python-ms
+  :demand
+  :hook (python-mode . lsp))
+
+(use-package lsp-ui :commands lsp-ui-mode)
+
+(use-package which-key
+    :config
+    (which-key-mode))
+
+(provide 'init)
+;;; init.el ends here
