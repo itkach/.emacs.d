@@ -147,7 +147,6 @@
   :config (fci-mode 1))
 
 (use-package markdown-mode
-  :ensure t
   :config
   (set-fill-column 80)
   (fci-mode 1))
