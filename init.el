@@ -122,6 +122,11 @@
   (setq ido-use-virtual-buffers t)
   :diminish nil)
 
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
+
 ;; Git integration for Emacs
 (use-package magit
   :ensure t
