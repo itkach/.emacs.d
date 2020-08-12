@@ -1,6 +1,8 @@
 ;; Do not show the startup screen.
 (setq inhibit-startup-message t)
 
+(fset 'yes-or-no-p 'y-or-n-p)                    ;replace y-e-s by y
+
 (when (window-system)
   (set-frame-font "Fira Code"))
 
@@ -12,6 +14,8 @@
 
 ;; Highlight current line.
 (global-hl-line-mode t)
+
+(show-paren-mode 1)
 
 ;; because Mac
 (global-set-key [home] 'move-beginning-of-line)
@@ -42,6 +46,11 @@
 (column-number-mode t)
 (delete-selection-mode t)
 
+;;no tabs
+(setq-default indent-tabs-mode nil)
+
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Require and initialize `package`.
 (require 'package)
@@ -58,6 +67,9 @@
 
 ;; Additional packages and their configurations
 
+(use-package delight
+  :ensure t)
+
 (use-package doom-themes
   :ensure t
   :config
@@ -68,13 +80,13 @@
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
-  
+
   ;; Enable custom neotree theme (all-the-icons must be installed!)
   (doom-themes-neotree-config)
   ;; or for treemacs users
   (setq doom-themes-treemacs-theme "doom-colors") ; use the colorful treemacs theme
   (doom-themes-treemacs-config)
-  
+
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
@@ -85,7 +97,7 @@
 (use-package iedit
   :ensure t
   :bind ("C-c ;" . iedit-mode))
-  
+
 (use-package company
   :ensure t
   ;; Navigate in completion minibuffer with `C-n` and `C-p`.
@@ -131,3 +143,36 @@
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit))
+
+(use-package ag
+  :ensure t
+  :bind ("C-o" . ag))
+
+(use-package goto-last-change
+  :ensure t
+  :bind ("C-q" . goto-last-change-with-auto-marks))
+
+(use-package fill-column-indicator
+  :ensure t
+  :config (fci-mode 1))
+
+(use-package markdown-mode
+  :ensure t
+  :config
+  (set-fill-column 80)
+  (fci-mode 1))
+
+(use-package dockerfile-mode
+  :ensure t)
+
+(use-package yaml-mode
+  :ensure t)
+
+(use-package thrift
+  :ensure t)
+
+;; Don't show anything for rainbow-mode.
+(use-package rainbow-mode
+  :ensure t
+  :delight
+  :hook prog-mode)
