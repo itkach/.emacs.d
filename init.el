@@ -144,7 +144,8 @@
   :bind ("C-q" . goto-last-change-with-auto-marks))
 
 (use-package fill-column-indicator
-  :config (fci-mode 1))
+  :config
+  (add-hook 'prog-mode-hook 'fci-mode))
 
 (use-package markdown-mode
   :config
