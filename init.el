@@ -13,8 +13,18 @@
 ;; Highlight current line.
 (global-hl-line-mode t)
 
-(global-set-key [(hyper v)] 'yank)
-(global-set-key [(hyper c)] 'kill-ring-save)
+;; because Mac
+(global-set-key [home] 'move-beginning-of-line)
+(global-set-key [end] 'move-end-of-line)
+
+;; Copy-Cut-Paste from clipboard with Super-C Super-X Super-V
+(global-set-key (kbd "s-x") 'clipboard-kill-region) ;;cut
+(global-set-key (kbd "s-c") 'clipboard-kill-ring-save) ;;copy
+(global-set-key (kbd "s-v") 'clipboard-yank) ;;paste
+
+(global-set-key (kbd "M-<up>") 'backward-paragraph)
+(global-set-key (kbd "M-<down>") 'forward-paragraph)
+
 
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'super)
