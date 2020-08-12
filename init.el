@@ -64,14 +64,14 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
 
 ;; Additional packages and their configurations
 
-(use-package delight
-  :ensure t)
+(use-package delight)
 
 (use-package doom-themes
-  :ensure t
   :config
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
@@ -91,15 +91,12 @@
   (doom-themes-org-config))
 
 (use-package doom-modeline
-  :ensure t
   :config (doom-modeline-mode 1))
 
 (use-package iedit
-  :ensure t
   :bind ("C-c ;" . iedit-mode))
 
 (use-package company
-  :ensure t
   ;; Navigate in completion minibuffer with `C-n` and `C-p`.
   :bind (:map company-active-map
          ("C-n" . company-select-next)
@@ -112,7 +109,6 @@
   (global-company-mode t))
 
 (use-package highlight-indent-guides
-  :ensure t
   :config
   (setq highlight-indent-guides-method 'character)
   ;; Indent character samples: | ┆ ┊
@@ -121,7 +117,6 @@
 
 ;; Display possible completions at all places
 (use-package ido-completing-read+
-  :ensure t
   :config
   ;; This enables ido in all contexts where it could be useful, not just
   ;; for selecting buffer and file names
@@ -135,25 +130,20 @@
   :diminish nil)
 
 (use-package rainbow-delimiters
-  :ensure t
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 ;; Git integration for Emacs
 (use-package magit
-  :ensure t
   :bind ("C-x g" . magit))
 
 (use-package ag
-  :ensure t
   :bind ("C-o" . ag))
 
 (use-package goto-last-change
-  :ensure t
   :bind ("C-q" . goto-last-change-with-auto-marks))
 
 (use-package fill-column-indicator
-  :ensure t
   :config (fci-mode 1))
 
 (use-package markdown-mode
@@ -162,17 +152,12 @@
   (set-fill-column 80)
   (fci-mode 1))
 
-(use-package dockerfile-mode
-  :ensure t)
+(use-package dockerfile-mode)
+(use-package yaml-mode)
+(use-package thrift)
+(use-package json-mode)
+(use-package pyvenv)
 
-(use-package yaml-mode
-  :ensure t)
-
-(use-package thrift
-  :ensure t)
-
-;; Don't show anything for rainbow-mode.
 (use-package rainbow-mode
-  :ensure t
   :delight
   :hook prog-mode)
