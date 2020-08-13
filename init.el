@@ -158,6 +158,21 @@
 (use-package json-mode)
 (use-package pyvenv)
 
+(use-package smartparens
+  :demand t
+  :delight smartparens-mode
+  :bind (:map smartparens-mode-map
+              ("H-z" . sp-kill-symbol)
+              ("C-)" . sp-forward-slurp-sexp)
+              ("C-}" . sp-forward-barf-sexp)
+              ("C-(" . sp-backward-slurp-sexp)
+              ("C-{" . sp-backward-barf-sexp))
+  :config
+  (progn
+    (require 'smartparens-config)
+    (smartparens-global-mode 1)
+    (sp-use-smartparens-bindings)))
+
 
 (use-package js2-mode :ensure t :defer 20
   :mode
