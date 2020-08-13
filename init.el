@@ -165,6 +165,13 @@
 (use-package flycheck
   :init (global-flycheck-mode))
 
+(use-package prettier-js
+  :config
+    (add-hook 'typescript-mode-hook 'prettier-js-mode)
+    (add-hook 'js2-mode-hook 'prettier-js-mode)
+    (add-hook 'js-mode-hook 'prettier-js-mode)
+    (add-hook 'rjsx-mode-hook 'prettier-js-mode))
+
 
 (setq lsp-keymap-prefix "s-l")
 
