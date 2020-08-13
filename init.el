@@ -273,5 +273,13 @@
     :config
     (which-key-mode))
 
+(use-package highlight-symbol
+  :bind (("C-, " . highlight-symbol-prev)
+         ("C-. " . highlight-symbol-next)
+         ("M-p " . highlight-symbol-at-point))
+  :config
+  (add-hook 'prog-mode-hook 'highlight-symbol-mode))
+
+
 (provide 'init)
 ;;; init.el ends here
