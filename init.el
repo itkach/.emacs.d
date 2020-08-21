@@ -145,7 +145,8 @@
 
 (use-package fill-column-indicator
   :config
-  (add-hook 'prog-mode-hook 'fci-mode))
+  (add-hook 'prog-mode-hook 'fci-mode)
+  (add-hook 'markdown-mode 'fci-mode))
 
 (use-package markdown-mode
   :config
