@@ -261,9 +261,12 @@
            (sh-mode . lsp)
            (yaml-mode . lsp)
            (dockerfile-mode . lsp)
+           (haskel-mode . lsp)
             ;; if you want which-key integration
            (lsp-mode . lsp-enable-which-key-integration))
-    :commands lsp)
+    :commands lsp
+    :config
+    (setq lsp-haskell-process-path-hie "hie-wrapper"))
 
 (use-package lsp-python-ms
   :demand
