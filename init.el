@@ -290,6 +290,10 @@
   :config
   (add-hook 'prog-mode-hook 'subword-mode))
 
+(use-package blacken
+    :config
+    (add-hook 'python-mode-hook 'blacken-mode))
+
 (use-package nix-mode
   :mode "\\.nix\\'")
 
