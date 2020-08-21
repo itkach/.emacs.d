@@ -285,6 +285,11 @@
   :config
   (add-hook 'prog-mode-hook 'highlight-symbol-mode))
 
+(use-package subword
+  :delight
+  :config
+  (add-hook 'prog-mode-hook 'subword-mode))
+
 (use-package nix-mode
   :mode "\\.nix\\'")
 
