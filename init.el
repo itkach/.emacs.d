@@ -17,6 +17,10 @@
 
 (show-paren-mode 1)
 
+(global-set-key [f5] 'refresh-file)
+(global-set-key [f6] 'sort-lines)
+(global-set-key [f8] 'linum-mode)
+
 ;; because Mac
 (global-set-key [home] 'move-beginning-of-line)
 (global-set-key [end] 'move-end-of-line)
