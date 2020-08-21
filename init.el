@@ -226,6 +226,7 @@
   "Hooks for Web mode."
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
+  (setq web-mode-enable-auto-indentation nil)
   (when (string-equal "tsx" (file-name-extension buffer-file-name))
     (setup-tide-mode))
   (when (string-equal "jsx" (file-name-extension buffer-file-name))
