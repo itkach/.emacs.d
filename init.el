@@ -247,6 +247,7 @@
 
 (use-package prettier-js
   :config
+    (add-hook 'web-mode-hook 'prettier-js-mode)
     (add-hook 'typescript-mode-hook 'prettier-js-mode)
     (add-hook 'js2-mode-hook 'prettier-js-mode)
     (add-hook 'js-mode-hook 'prettier-js-mode)
