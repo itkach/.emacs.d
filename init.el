@@ -309,5 +309,10 @@
          (haskell-mode . turn-on-haskell-indent)
          (haskell-mode . interactive-haskell-mode)))
 
+(use-package hideshow
+  :bind ("C-'" . hs-toggle-hiding)
+  :hook ((prog-mode . hs-minor-mode)))
+
+
 (provide 'init)
 ;;; init.el ends here
