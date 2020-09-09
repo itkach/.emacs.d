@@ -583,6 +583,11 @@
     :config
     (add-hook 'python-mode-hook 'blacken-mode))
 
+(use-package py-isort
+  :after python
+  :hook ((python-mode . pyvenv-mode)
+         (before-save . py-isort-before-save)))
+
 (use-package nix-mode
   :mode "\\.nix\\'")
 
