@@ -602,5 +602,9 @@
   :bind ("C-'" . hs-toggle-hiding)
   :hook ((prog-mode . hs-minor-mode)))
 
+
+(use-package restclient)
+
+
 (provide 'init)
 ;;; init.el ends here
