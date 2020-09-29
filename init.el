@@ -71,8 +71,8 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
+;(require 'use-package-ensure)
+;(setq use-package-always-ensure t)
 
 ;; Additional packages and their configurations
 
