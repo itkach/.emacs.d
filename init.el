@@ -509,18 +509,16 @@
            (yaml-mode . lsp)
            (dockerfile-mode . lsp)
            (haskel-mode . lsp)
+           (python-mode . lsp)
             ;; if you want which-key integration
            (lsp-mode . lsp-enable-which-key-integration))
     :commands lsp
     :config
     (setq lsp-keymap-prefix "s-l")
+    (lsp-register-custom-settings
+     '(("pyls.plugins.pyls_mypy.enabled" t t)
+       ("pyls.plugins.pyls_mypy.live_mode" nil t)))
     (setq lsp-haskell-process-path-hie "hie-wrapper"))
-
-(use-package lsp-python-ms
-  :demand
-  :hook (python-mode . lsp))
-
-(use-package lsp-ui :commands lsp-ui-mode)
 
 (use-package which-key
     :config
