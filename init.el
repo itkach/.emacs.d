@@ -502,6 +502,12 @@
     (add-hook 'js-mode-hook 'prettier-js-mode)
     (add-hook 'rjsx-mode-hook 'prettier-js-mode))
 
+(use-package lsp-haskell
+ :config
+ (setq lsp-haskell-process-path-hie "hie-wrapper")
+ ;; Comment/uncomment this line to see interactions between lsp client/server.
+ ;;(setq lsp-log-io t)
+ )
 
 (use-package lsp-mode
     :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
@@ -517,8 +523,7 @@
     (setq lsp-keymap-prefix "s-l")
     (lsp-register-custom-settings
      '(("pyls.plugins.pyls_mypy.enabled" t t)
-       ("pyls.plugins.pyls_mypy.live_mode" nil t)))
-    (setq lsp-haskell-process-path-hie "hie-wrapper"))
+       ("pyls.plugins.pyls_mypy.live_mode" nil t))))
 
 (use-package which-key
     :config
