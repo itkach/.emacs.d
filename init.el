@@ -98,7 +98,8 @@
   (doom-themes-org-config))
 
 (use-package doom-modeline
-  :config (doom-modeline-mode 1))
+  :config (doom-modeline-mode 1)
+  (setq doom-modeline-buffer-file-name-style 'truncate-except-project))
 
 (use-package iedit
   :bind ("C-c ;" . iedit-mode))
