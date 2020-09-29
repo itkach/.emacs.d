@@ -307,10 +307,6 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Require and initialize `package`.
-(require 'package)
-(package-initialize)
-
 ;; Add `melpa` to `package-archives`.
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
@@ -318,9 +314,6 @@
 (when (not (package-installed-p 'use-package))
   (package-refresh-contents)
   (package-install 'use-package))
-
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
 
 ;; Additional packages and their configurations
 
