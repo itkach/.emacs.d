@@ -6,6 +6,7 @@
 (when (window-system)
   (set-frame-font "Fira Code"))
 
+(setq-default frame-title-format '("%f"))
 
 ;; Disable tool bar, menu bar, scroll bar.
 (tool-bar-mode -1)
