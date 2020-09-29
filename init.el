@@ -586,6 +586,7 @@
 
 (use-package py-isort
   :after python
+  :config (setq py-isort-options '("-sl"))
   :hook ((python-mode . pyvenv-mode)
          (before-save . py-isort-before-save)))
 
