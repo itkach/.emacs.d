@@ -262,41 +262,6 @@
     (add-hook 'js-mode-hook 'prettier-js-mode)
     (add-hook 'rjsx-mode-hook 'prettier-js-mode))
 
-
-(setq lsp-keymap-prefix "s-l")
-
-(use-package lsp-mode
-    :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
-           (sh-mode . lsp)
-           (yaml-mode . lsp)
-           (dockerfile-mode . lsp)
-           (haskel-mode . lsp)
-            ;; if you want which-key integration
-           (lsp-mode . lsp-enable-which-key-integration))
-    :commands lsp
-    :config
-    (setq lsp-haskell-process-path-hie "hie-wrapper"))
-
-(use-package lsp-python-ms
-  :demand
-  :hook (python-mode . lsp))
-
-(use-package lsp-ui :commands lsp-ui-mode)
-
-(use-package which-key
-    :config
-    (which-key-mode))
-
-(use-package highlight-symbol
-  :bind (("C-, " . highlight-symbol-prev)
-         ("C-. " . highlight-symbol-next)
-         ("M-p " . highlight-symbol-at-point))
-  :config
-  (add-hook 'prog-mode-hook 'highlight-symbol-mode))
-
-(use-package subword
-  :delight)
-
 (defun refresh-file ()
   "Re-read file from disk."
   (interactive)
