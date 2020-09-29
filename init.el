@@ -503,8 +503,6 @@
     (add-hook 'rjsx-mode-hook 'prettier-js-mode))
 
 
-(setq lsp-keymap-prefix "s-l")
-
 (use-package lsp-mode
     :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
            (sh-mode . lsp)
@@ -515,6 +513,7 @@
            (lsp-mode . lsp-enable-which-key-integration))
     :commands lsp
     :config
+    (setq lsp-keymap-prefix "s-l")
     (setq lsp-haskell-process-path-hie "hie-wrapper"))
 
 (use-package lsp-python-ms
