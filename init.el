@@ -65,6 +65,12 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'python-mode-hook 'set-fill-column-to-blacken)
 
+(defun add-format-clojure-hook ()
+  (add-hook 'before-save-hook 'cider-format-buffer nil 'local))
+
+(add-hook 'clojure-mode-hook 'add-format-clojure-hook)
+
+
 ;; Require and initialize `package`.
 (require 'package)
 (package-initialize)
