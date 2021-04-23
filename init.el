@@ -429,8 +429,7 @@
 
 (use-package tide
   :after typescript-mode
-  :hook ((before-save . tide-format-before-save)
-         (typescript-mode . setup-tide-mode)))
+  :hook ((typescript-mode . setup-tide-mode)))
 
 
 (defun my-web-mode-hook ()
