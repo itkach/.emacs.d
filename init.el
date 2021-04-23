@@ -56,8 +56,14 @@
 ;;no tabs
 (setq-default indent-tabs-mode nil)
 
+
+(defun set-fill-column-to-blacken ()
+  "Call on python mode hook to set fill column to match black formatter default."
+       (set-fill-column 88))
+
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'python-mode-hook 'set-fill-column-to-blacken)
 
 ;; Require and initialize `package`.
 (require 'package)
