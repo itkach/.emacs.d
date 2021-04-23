@@ -464,6 +464,12 @@
  ;;(setq lsp-log-io t)
  )
 
+(defun my-flycheck-setup ()
+  (flycheck-add-next-checker 'python-pycompile 'python-pylint))
+
+(add-hook 'python-mode-hook 'my-flycheck-setup)
+
+
 (use-package lsp-mode
     :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
            (sh-mode . lsp)
