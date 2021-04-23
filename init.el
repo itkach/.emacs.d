@@ -202,51 +202,6 @@
             (lambda (c) (eq c ?#)))
   (add-hook 'js2-mode-hook #'setup-tide-mode))
 
-
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
-  ;;(company-mode +1)
-  )
-
-(use-package typescript-mode
-  :init
-  (setq typescript-indent-level 2)
-  :bind
-  (:map typescript-mode-map
-   ("C-i" . company-indent-or-complete-common)
-   ("C-M-i" . company-indent-or-complete-common)))
-
-(use-package tide
-  :after typescript-mode
-  :hook ((before-save . tide-format-before-save)
-         (typescript-mode . setup-tide-mode)))
-
-
-(defun my-web-mode-hook ()
-  "Hooks for Web mode."
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq web-mode-enable-auto-indentation nil)
-  (when (string-equal "tsx" (file-name-extension buffer-file-name))
-    (setup-tide-mode))
-  (when (string-equal "jsx" (file-name-extension buffer-file-name))
-    (setup-tide-mode)))
-
-(use-package web-mode
-  :init
-  (add-hook 'web-mode-hook #'my-web-mode-hook)
-  (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode)))
-
 (use-package rainbow-mode
   :delight
   :hook prog-mode)
